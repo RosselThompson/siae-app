@@ -4,7 +4,7 @@ import { InfoCard, ProfileCard, ProgressCard, StatusCard } from './components';
 const Dashboard = () => (
   <>
     <Grid container>
-      <Grid item>
+      <Grid item md={12} sm={12} xs={12}>
         <InfoCard />
       </Grid>
     </Grid>

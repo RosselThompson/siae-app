@@ -25,3 +25,19 @@ export const userSchema = () => {
     role: Yup.array().min(1, t('field.isRequired')),
   });
 };
+
+export const toolSchema = () => {
+  const { t } = useTranslation();
+  return Yup.object().shape({
+    name: Yup.string().required(t('field.isRequired')),
+  });
+};
+
+export const criteriaSchema = () => {
+  const { t } = useTranslation();
+  return Yup.object().shape({
+    name: Yup.string().required(t('field.isRequired')),
+    type: Yup.object().required(t('field.isRequired')),
+    group: Yup.object().required(t('field.isRequired')),
+  });
+};

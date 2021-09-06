@@ -6,6 +6,11 @@ import { FormButton } from 'components/FormButton';
 import { TextInput } from 'components/Inputs/TextInput';
 import { TabPanel } from 'components/TabPanel';
 import { TabsContainer } from 'components/TabsContainer';
+import { ActionButton } from 'components/ActionButton';
+import { TagList } from 'components/TagList';
+import { SelectInput } from 'components/Inputs/SelectInput';
+import { toolSchema, criteriaSchema } from 'helpers/schemas';
+import { CriteriaType, CriteriaGroup } from 'mock/mockData';
 import PropTypes from 'prop-types';
 
 const ManageToolForm = (props) => {
@@ -18,12 +23,24 @@ const ManageToolForm = (props) => {
     settab(newValue);
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmitForm = (values) => {
     setisLoading(true);
     console.log(values);
     setTimeout(() => {
       setisLoading(false);
     }, 1000);
+  };
+
+  const handleSubmitCriteria = (values, data, onChange, actions) => {
+    onChange('criteria', [
+      ...data,
+      {
+        name: values?.name,
+        type: values?.type,
+        group: values?.group,
+      },
+    ]);
+    actions.resetForm();
   };
 
   return (
@@ -35,43 +52,83 @@ const ManageToolForm = (props) => {
       <Formik
         initialValues={{
           name: isEditing ? selectedRow.nombre : '',
+          criteria: [],
         }}
         validateOnChange={false}
         validateOnBlur={false}
-        // validationSchema={userSchema()}
-        onSubmit={handleSubmit}
+        validationSchema={toolSchema()}
+        onSubmit={handleSubmitForm}
       >
-        <Form>
-          <TabsContainer
-            value={tab}
-            onChange={handleChangeTab}
-            tabs={['Aspecto', 'Criterios']}
-          />
-          <TabPanel value={tab} index={0}>
-            <TextInput name="name" title={t('manageTools.form.input.name')} />
-          </TabPanel>
-          <TabPanel value={tab} index={1}>
-            <TextInput
-              name="name"
-              title={t('manageTools.form.input.criteria.name')}
+        {({ values, setFieldValue }) => (
+          <Form>
+            <TabsContainer
+              value={tab}
+              onChange={handleChangeTab}
+              tabs={['Aspecto', 'Criterios']}
             />
-            <TextInput
-              name="type"
-              title={t('manageTools.form.input.criteria.type')}
-            />
-            <TextInput
-              name="group"
-              title={t('manageTools.form.input.criteria.group')}
-            />
-          </TabPanel>
+            <TabPanel value={tab} index={0}>
+              <TextInput
+                name="name"
+                title={t('manageTool.form.aspect.input.name')}
+              />
+            </TabPanel>
+            <TabPanel value={tab} index={1}>
+              <Formik
+                initialValues={{
+                  name: '',
+                  type: '',
+                  group: '',
+                }}
+                validationSchema={criteriaSchema()}
+                validateOnChange={false}
+                validateOnBlur={false}
+                onSubmit={(val, actions) => {
+                  handleSubmitCriteria(
+                    val,
+                    values?.criteria,
+                    setFieldValue,
+                    actions
+                  );
+                }}
+              >
+                {({ handleSubmit }) => (
+                  <Form>
+                    <TextInput
+                      name="name"
+                      title={t('manageTool.form.criteria.input.name')}
+                    />
+                    <SelectInput
+                      data={CriteriaType}
+                      fieldValue="name"
+                      name="type"
+                      title={t('manageTool.form.criteria.input.type')}
+                    />
+                    <SelectInput
+                      data={CriteriaGroup}
+                      fieldValue="name"
+                      name="group"
+                      title={t('manageTool.form.criteria.input.group')}
+                      groupBy="group"
+                    />
+                    <ActionButton
+                      text={t('manageTool.form.criteria.button')}
+                      onClick={handleSubmit}
+                    />
 
-          <FormButton
-            text={!isEditing ? t('button.save') : t('button.edit')}
-            loadingText={t('button.isLoading')}
-            isLoading={isLoading}
-            type="submit"
-          />
-        </Form>
+                    <TagList dataList={values?.criteria} fieldValue="name" />
+                  </Form>
+                )}
+              </Formik>
+            </TabPanel>
+
+            <FormButton
+              text={!isEditing ? t('button.save') : t('button.edit')}
+              loadingText={t('button.isLoading')}
+              isLoading={isLoading}
+              type="submit"
+            />
+          </Form>
+        )}
       </Formik>
     </Modal>
   );

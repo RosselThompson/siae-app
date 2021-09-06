@@ -19,6 +19,7 @@
   "menu.dashboard": "Dashboard",
   "menu.role": "Roles de Usuario",
   "menu.users": "Usuarios",
+  "menu.aspects": "Aspectos y Variables",
   "menu.manageAAC": "Gestionar AAC",
   "menu.manageVED": "Gestionar VED",
   "menu.manageAVD": "Gestionar AVD",
@@ -68,5 +69,10 @@
   "manageTool.delete.title": "Eliminar Aspecto",
   "manageTool.delete.body": "¿Desea eliminar el aspecto seleccionado?",
   "manageTool.delete.info": "Esta acción no afectara el histórico de las aplicaciones",
-  "manageTool.form.title": "Gestionar Instrumento"
+  "manageTool.form.title": "Gestionar Instrumento",
+  "manageTool.form.aspect.input.name": "Nombre del Aspecto",
+  "manageTool.form.criteria.input.name": "Nombre del Criterio",
+  "manageTool.form.criteria.input.type": "Tipo de Visualización",
+  "manageTool.form.criteria.input.group": "Grupo de variable",
+  "manageTool.form.criteria.button": "+ Agregar Criterio"
 }
