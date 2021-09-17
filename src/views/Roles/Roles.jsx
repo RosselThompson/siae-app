@@ -1,16 +1,15 @@
 import { useState } from 'react';
+import { useLoadRoles } from 'hooks/useLoadRoles';
 import { Table } from 'components/Table';
-// import { Loader } from 'components/Loader';
+import { Loader } from 'components/Loader';
 import { Toolbar } from 'components/Toolbar';
 import RoleForm from './components/RoleForm';
 import RoleDelete from './components/RoleDelete';
-// import useLoadRoles from 'hooks/useLoadRoles';
-import { Roles as roleData } from 'mock/mockData';
 
 const columns = [{ title: 'role.columns.role', field: 'nombreRol' }];
 
 const Roles = () => {
-  // const [data, loading, error] = useLoadRoles();
+  const [data, loading, error] = useLoadRoles();
   const [openForm, setopenForm] = useState(false);
   const [openDeleteForm, setopenDeleteForm] = useState(false);
   const [selectedRow, setselectedRow] = useState(null);
@@ -29,7 +28,7 @@ const Roles = () => {
     setisEditing(true);
   };
 
-  // if (loading) return <Loader error={error} />;
+  if (loading) return <Loader error={error} />;
 
   return (
     <>
@@ -40,7 +39,7 @@ const Roles = () => {
         isSelected={!!selectedRow}
       />
       <Table
-        data={roleData}
+        data={data}
         columns={columns}
         count={0}
         setSelectedRow={setselectedRow}

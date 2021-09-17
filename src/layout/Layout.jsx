@@ -24,7 +24,8 @@ const Layout = (props) => {
   };
   const getTitle = () => {
     if (history.location.pathname !== '/')
-      return MenuData.find((e) => e.to === history.location.pathname).name;
+      return MenuData.find((e) => e.to === history.location.pathname)
+        ?.nombreModulo;
     return '';
   };
 

@@ -1,14 +1,16 @@
 import { useState } from 'react';
+import { useLoadManageTool } from 'hooks/useLoadManageTool';
 import { CollapsibleTable } from 'components/CollapsibleTable';
 import { Toolbar } from 'components/Toolbar';
+import { Loader } from 'components/Loader';
 import ManageToolForm from './components/ManageToolForm';
 import ManageToolDelete from './components/ManageToolDelete';
-import { AAC as aacData } from 'mock/mockData';
 import PropTypes from 'prop-types';
 
 const columns = [{ title: 'manageTools.columns.aspect', field: 'nombre' }];
 
 const ManageTools = () => {
+  const [data, loading, error] = useLoadManageTool();
   const [openForm, setopenForm] = useState(false);
   const [openDeleteForm, setopenDeleteForm] = useState(false);
   const [selectedRow, setselectedRow] = useState(null);
@@ -27,6 +29,8 @@ const ManageTools = () => {
     setisEditing(true);
   };
 
+  if (loading) return <Loader error={error} />;
+
   return (
     <>
       <Toolbar
@@ -37,7 +41,7 @@ const ManageTools = () => {
       />
 
       <CollapsibleTable
-        data={aacData}
+        data={data}
         fieldChild="criterios"
         textChild="nombre"
         columns={columns}

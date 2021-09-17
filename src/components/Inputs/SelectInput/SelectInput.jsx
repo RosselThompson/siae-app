@@ -29,28 +29,24 @@ const SelectInput = (props) => {
       </MenuItem>
     ));
 
-  const testList = () => {
-    const firstGroup = data.map((e, i) => {
+  const groupList = () => {
+    const newData = data.map((e, i) => {
       const prev = data[i - 1] || {};
-      return e[groupBy]?.name !== prev[groupBy]?.name ? i : null;
+      return e[groupBy] !== prev[groupBy] ? { section: e[groupBy] } : e;
     });
-    const index = firstGroup.filter((e) => e !== null);
-    const newData = [...data];
-    index.forEach((e) => newData.splice(e, 0, {}));
-    return newData?.map((e, i) => {
-      const group = data[i + index.length - 1] || {};
-      return e[fieldValue] ? (
+    return newData.map((e) =>
+      e[fieldValue] ? (
         <MenuItem key={e[fieldValue]} value={e}>
           {e[fieldValue]}
         </MenuItem>
       ) : (
-        <ListSubheader className={classes.header} key={i}>
-          {group[groupBy]?.name}
+        <ListSubheader className={classes.header} key={e?.section}>
+          {e?.section}
         </ListSubheader>
-      );
-    });
+      )
+    );
   };
-  const renderItems = () => (groupBy ? testList() : allItems());
+  const renderItems = () => (groupBy ? groupList() : allItems());
 
   return (
     <Box marginBottom="1.5rem">
@@ -63,7 +59,7 @@ const SelectInput = (props) => {
         size="small"
         error={meta.touched && Boolean(meta.error)}
       >
-        <Select {...field} fullWidth>
+        <Select {...field} fullWidth renderValue={(v) => v?.name}>
           {renderItems()}
         </Select>
         <FormHelperText>{meta.touched && meta.error}</FormHelperText>

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Roles } from 'mock/mockData';
+import { Users, Roles } from 'mock/mockData';
 
-export const useLoadRoles = () => {
+export const useLoadUser = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error] = useState(null);
 
   useEffect(() => {
     setTimeout(() => {
-      setData(Roles);
+      setData({ users: Users, roles: Roles });
       setLoading(false);
     }, 2000);
   }, []);
@@ -16,4 +16,4 @@ export const useLoadRoles = () => {
   return [data, loading, error];
 };
 
-export default useLoadRoles;
+export default useLoadUser;

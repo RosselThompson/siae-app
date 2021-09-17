@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { useLoadUser } from 'hooks/useLoadUser';
 import { Table } from 'components/Table';
 import { Toolbar } from 'components/Toolbar';
-import { Users as userData, Roles as roleData } from 'mock/mockData';
+import { Loader } from 'components/Loader';
 import { getRoleByString } from 'helpers/getRoleByString';
 import UserForm from './components/UserForm';
 import UserDelete from './components/UserDelete';
@@ -14,6 +15,7 @@ const columns = [
 ];
 
 const Users = () => {
+  const [data, loading, error] = useLoadUser();
   const [openForm, setopenForm] = useState(false);
   const [openDeleteForm, setopenDeleteForm] = useState(false);
   const [selectedRow, setselectedRow] = useState(null);
@@ -32,6 +34,8 @@ const Users = () => {
     setisEditing(true);
   };
 
+  if (loading) return <Loader error={error} />;
+
   return (
     <>
       <Toolbar
@@ -41,7 +45,7 @@ const Users = () => {
         isSelected={!!selectedRow}
       />
       <Table
-        data={getRoleByString(userData, roleData)}
+        data={getRoleByString(data.users, data.roles)}
         columns={columns}
         count={0}
         setSelectedRow={setselectedRow}

@@ -10,7 +10,8 @@ import { ActionButton } from 'components/ActionButton';
 import { TagList } from 'components/TagList';
 import { SelectInput } from 'components/Inputs/SelectInput';
 import { toolSchema, criteriaSchema } from 'helpers/schemas';
-import { CriteriaType, CriteriaGroup } from 'mock/mockData';
+import { getAspectGroup } from 'helpers/getAspectGroup';
+import { CriteriaType, Aspects } from 'mock/mockData';
 import PropTypes from 'prop-types';
 
 const ManageToolForm = (props) => {
@@ -35,7 +36,7 @@ const ManageToolForm = (props) => {
     onChange('criteria', [
       ...data,
       {
-        name: values?.name,
+        nombre: values?.name,
         type: values?.type,
         group: values?.group,
       },
@@ -52,7 +53,7 @@ const ManageToolForm = (props) => {
       <Formik
         initialValues={{
           name: isEditing ? selectedRow.nombre : '',
-          criteria: [],
+          criteria: isEditing ? selectedRow.criterios : [],
         }}
         validateOnChange={false}
         validateOnBlur={false}
@@ -77,7 +78,7 @@ const ManageToolForm = (props) => {
                 initialValues={{
                   name: '',
                   type: '',
-                  group: '',
+                  group: undefined,
                 }}
                 validationSchema={criteriaSchema()}
                 validateOnChange={false}
@@ -104,7 +105,7 @@ const ManageToolForm = (props) => {
                       title={t('manageTool.form.criteria.input.type')}
                     />
                     <SelectInput
-                      data={CriteriaGroup}
+                      data={getAspectGroup(Aspects)}
                       fieldValue="name"
                       name="group"
                       title={t('manageTool.form.criteria.input.group')}
@@ -115,7 +116,7 @@ const ManageToolForm = (props) => {
                       onClick={handleSubmit}
                     />
 
-                    <TagList dataList={values?.criteria} fieldValue="name" />
+                    <TagList dataList={values?.criteria} fieldValue="nombre" />
                   </Form>
                 )}
               </Formik>

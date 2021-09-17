@@ -10,6 +10,8 @@ const Router = () => (
         <Route exact path="/roles" component={Roles} />
         <Route exact path="/users" component={Users} />
         <Route exact path="/aac" component={ManageTools} />
+        <Route exact path="/ved" component={ManageTools} />
+        <Route exact path="/avd" component={ManageTools} />
       </Layout>
     </Switch>
   </BrowserRouter>

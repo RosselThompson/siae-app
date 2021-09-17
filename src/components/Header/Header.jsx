@@ -31,8 +31,8 @@ const Header = (props) => {
           />
         </Typography>
       </Box>
-      <Box marginTop="3rem">
-        <Typography variant="h6">{t(title)}</Typography>
+      <Box marginTop="2rem">
+        <Typography>{t(title)}</Typography>
       </Box>
     </>
   );
