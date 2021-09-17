@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Box, Typography } from '@material-ui/core';
+import { useTranslation, Trans } from 'react-i18next';
 import { Formik, Form } from 'formik';
 import { Modal } from 'components/Modal';
 import { FormButton } from 'components/FormButton';
@@ -39,6 +40,7 @@ const ManageToolForm = (props) => {
         nombre: values?.name,
         type: values?.type,
         group: values?.group,
+        options: values?.options,
       },
     ]);
     actions.resetForm();
@@ -78,7 +80,8 @@ const ManageToolForm = (props) => {
                 initialValues={{
                   name: '',
                   type: '',
-                  group: undefined,
+                  group: '',
+                  options: '',
                 }}
                 validationSchema={criteriaSchema()}
                 validateOnChange={false}
@@ -94,15 +97,17 @@ const ManageToolForm = (props) => {
               >
                 {({ handleSubmit }) => (
                   <Form>
+                    <Box marginY="1rem">
+                      <Typography variant="caption" color="textSecondary">
+                        <Trans
+                          i18nKey="manageTool.form.criteria.info"
+                          components={[<strong key="0" />]}
+                        />
+                      </Typography>
+                    </Box>
                     <TextInput
                       name="name"
                       title={t('manageTool.form.criteria.input.name')}
-                    />
-                    <SelectInput
-                      data={CriteriaType}
-                      fieldValue="name"
-                      name="type"
-                      title={t('manageTool.form.criteria.input.type')}
                     />
                     <SelectInput
                       data={getAspectGroup(Aspects)}
@@ -110,6 +115,16 @@ const ManageToolForm = (props) => {
                       name="group"
                       title={t('manageTool.form.criteria.input.group')}
                       groupBy="group"
+                    />
+                    <SelectInput
+                      data={CriteriaType}
+                      fieldValue="name"
+                      name="type"
+                      title={t('manageTool.form.criteria.input.type')}
+                    />
+                    <TextInput
+                      name="options"
+                      title={t('manageTool.form.criteria.input.options')}
                     />
                     <ActionButton
                       text={t('manageTool.form.criteria.button')}

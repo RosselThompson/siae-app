@@ -39,5 +39,9 @@ export const criteriaSchema = () => {
     name: Yup.string().required(t('field.isRequired')),
     type: Yup.object().required(t('field.isRequired')),
     group: Yup.object().required(t('field.isRequired')),
+    options: Yup.string().when('type', {
+      is: (type) => type?.id === 3,
+      then: Yup.string().required(t('field.isRequired')),
+    }),
   });
 };

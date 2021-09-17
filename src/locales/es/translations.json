@@ -71,8 +71,10 @@
   "manageTool.delete.info": "Esta acción no afectara el histórico de las aplicaciones",
   "manageTool.form.title": "Gestionar Instrumento",
   "manageTool.form.aspect.input.name": "Nombre del Aspecto",
+  "manageTool.form.criteria.info": "Nota: Cuando el Tipo de Visualización sea 'Multiple' se tomarán las opciones separadas por coma y espacio ', ' por ejemplo <0>' Opcion1, Opcion2 '</0>",
   "manageTool.form.criteria.input.name": "Nombre del Criterio",
   "manageTool.form.criteria.input.type": "Tipo de Visualización",
   "manageTool.form.criteria.input.group": "Grupo de variable",
+  "manageTool.form.criteria.input.options": "Opciones",
   "manageTool.form.criteria.button": "+ Agregar Criterio"
 }
