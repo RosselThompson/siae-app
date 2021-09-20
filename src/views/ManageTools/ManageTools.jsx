@@ -41,7 +41,7 @@ const ManageTools = () => {
       />
 
       <CollapsibleTable
-        data={data}
+        data={data?.toolData}
         fieldChild="criterios"
         textChild="nombre"
         columns={columns}
@@ -52,6 +52,7 @@ const ManageTools = () => {
         handleClose={handleCloseForm}
         isEditing={isEditing}
         selectedRow={selectedRow}
+        aspectData={data?.aspects}
       />
       <ManageToolDelete
         openForm={openDeleteForm}

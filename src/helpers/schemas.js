@@ -26,6 +26,20 @@ export const userSchema = () => {
   });
 };
 
+export const aspectSchema = () => {
+  const { t } = useTranslation();
+  return Yup.object().shape({
+    name: Yup.string().required(t('field.isRequired')),
+  });
+};
+
+export const variableSchema = () => {
+  const { t } = useTranslation();
+  return Yup.object().shape({
+    name: Yup.string().required(t('field.isRequired')),
+  });
+};
+
 export const toolSchema = () => {
   const { t } = useTranslation();
   return Yup.object().shape({

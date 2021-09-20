@@ -12,10 +12,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const TagList = (props) => {
-  const { dataList, fieldValue } = props;
+  const { dataList, fieldValue, onChange } = props;
   const classes = useStyles();
-
-  const handleDelete = () => {};
 
   return (
     <Box marginY="1rem">
@@ -24,7 +22,7 @@ const TagList = (props) => {
           <Chip
             className={classes.chips}
             label={e[fieldValue]}
-            onDelete={handleDelete}
+            onDelete={() => onChange(e)}
           />
         </Box>
       ))}

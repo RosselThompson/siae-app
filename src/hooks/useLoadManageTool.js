@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AAC, VED, AVD } from 'mock/mockData';
+import { AAC, VED, AVD, Aspects } from 'mock/mockData';
 
 // USE SIAE PATH INSTEAD MOCK DATA
 const paths = {
@@ -16,7 +16,7 @@ export const useLoadManageTool = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setData(toolData);
+      setData({ toolData, aspects: Aspects });
       setLoading(false);
     }, 2000);
   }, []);
