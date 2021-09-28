@@ -1,6 +1,6 @@
 import Layout from 'layout/Layout';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
-import { Dashboard, Roles, Users, Aspect, ManageTools } from 'views';
+import { Dashboard, Roles, Users, Aspect, ManageTools, Schedule } from 'views';
 
 const Router = () => (
   <BrowserRouter>
@@ -13,6 +13,7 @@ const Router = () => (
         <Route exact path="/aac" component={ManageTools} />
         <Route exact path="/ved" component={ManageTools} />
         <Route exact path="/avd" component={ManageTools} />
+        <Route exact path="/schedule" component={Schedule} />
       </Layout>
     </Switch>
   </BrowserRouter>

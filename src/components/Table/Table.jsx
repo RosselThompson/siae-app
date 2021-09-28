@@ -22,6 +22,7 @@ import {
   LastPage,
 } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
+import { shortDate, isDate } from 'helpers/dateFormat';
 
 const useStyles = makeStyles((theme) => ({
   rowBody: {
@@ -52,16 +53,20 @@ const Table = (props) => {
   const [selectedRowIndex, setselectedRowIndex] = useState(null);
   const allowedColumns = columns.map((e) => e.field);
   const rowData = data
-    .map((e) =>
-      Object.fromEntries(
-        Object.entries(e).filter(([key]) => allowedColumns.includes(key))
-      )
-    )
+    .map((e) => {
+      const newObj = {};
+      allowedColumns.forEach((r) => {
+        const hierarchy = r.split('.');
+        if (hierarchy.length > 1) newObj[r] = e[hierarchy[0]][hierarchy[1]];
+        else newObj[r] = e[r];
+      });
+      return newObj;
+    })
     .slice(0, 10);
 
   return (
     <Box marginBottom="2rem" marginTop="1rem">
-      <Box height="37rem">
+      <Box minHeight="37rem">
         <MaterialTableContainer>
           <MaterialTable size="medium">
             <MaterialTableHead>
@@ -89,7 +94,9 @@ const Table = (props) => {
                 >
                   {Object.keys(row).map((e) => (
                     <MaterialTableCell key={e} align="left">
-                      <Typography variant="caption">{row[e]}</Typography>
+                      <Typography variant="caption">
+                        {!isDate(row[e]) ? row[e] : shortDate(row[e])}
+                      </Typography>
                     </MaterialTableCell>
                   ))}
                 </MaterialTableRow>

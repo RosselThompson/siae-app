@@ -59,3 +59,22 @@ export const criteriaSchema = () => {
     }),
   });
 };
+
+export const scheduleSchema = () => {
+  const { t } = useTranslation();
+  return Yup.object().shape({
+    faculty: Yup.object().required(t('field.isRequired')),
+    year: Yup.string().required(t('field.isRequired')),
+    semester: Yup.string().required(t('field.isRequired')),
+    startDate: Yup.date().required(t('field.isRequired')),
+    endDate: Yup.date()
+      .min(
+        Yup.ref('startDate'),
+        t('field.greaterThan', {
+          value1: t('schedule.form.input.endDate'),
+          value2: t('schedule.form.input.startDate'),
+        })
+      )
+      .required(t('field.isRequired')),
+  });
+};

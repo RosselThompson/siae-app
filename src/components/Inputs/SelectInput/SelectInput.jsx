@@ -24,8 +24,8 @@ const SelectInput = (props) => {
 
   const allItems = () =>
     data?.map((e) => (
-      <MenuItem key={e[fieldValue]} value={e}>
-        {e[fieldValue]}
+      <MenuItem key={fieldValue ? e[fieldValue] : e} value={e}>
+        {fieldValue ? e[fieldValue] : e}
       </MenuItem>
     ));
 
@@ -59,7 +59,11 @@ const SelectInput = (props) => {
         size="small"
         error={meta.touched && Boolean(meta.error)}
       >
-        <Select {...field} fullWidth renderValue={(v) => v?.name}>
+        <Select
+          {...field}
+          fullWidth
+          renderValue={(v) => (fieldValue ? v[fieldValue] : v)}
+        >
           {renderItems()}
         </Select>
         <FormHelperText>{meta.touched && meta.error}</FormHelperText>

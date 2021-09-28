@@ -12,7 +12,7 @@ import { TagList } from 'components/TagList';
 import { SelectInput } from 'components/Inputs/SelectInput';
 import { toolSchema, criteriaSchema } from 'helpers/schemas';
 import { getAspectGroup } from 'helpers/getAspectGroup';
-import { CriteriaType } from 'constants/types';
+import { criteriaType } from 'constants/types';
 import PropTypes from 'prop-types';
 
 const ManageToolForm = (props) => {
@@ -117,7 +117,7 @@ const ManageToolForm = (props) => {
                       groupBy="group"
                     />
                     <SelectInput
-                      data={CriteriaType}
+                      data={criteriaType}
                       fieldValue="name"
                       name="type"
                       title={t('manageTool.form.criteria.input.type')}
