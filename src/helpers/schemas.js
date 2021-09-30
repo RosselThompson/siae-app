@@ -78,3 +78,22 @@ export const scheduleSchema = () => {
       .required(t('field.isRequired')),
   });
 };
+
+export const scheduleAACSchema = () => {
+  const { t } = useTranslation();
+  return Yup.object().shape({
+    generalSchedule: Yup.object().required(t('field.isRequired')),
+    professorCourse: Yup.object().required(t('field.isRequired')),
+    date: Yup.date().required(t('field.isRequired')),
+    startTime: Yup.date().required(t('field.isRequired')),
+    endTime: Yup.date()
+      .min(
+        Yup.ref('startTime'),
+        t('field.greaterThan', {
+          value1: t('scheduleAAC.form.input.endTime'),
+          value2: t('scheduleAAC.form.input.startTime'),
+        })
+      )
+      .required(t('field.isRequired')),
+  });
+};

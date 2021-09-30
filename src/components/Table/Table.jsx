@@ -55,10 +55,17 @@ const Table = (props) => {
   const rowData = data
     .map((e) => {
       const newObj = {};
-      allowedColumns.forEach((r) => {
-        const hierarchy = r.split('.');
-        if (hierarchy.length > 1) newObj[r] = e[hierarchy[0]][hierarchy[1]];
-        else newObj[r] = e[r];
+      allowedColumns.forEach((r, i) => {
+        if (typeof r === 'function') {
+          newObj[`custom${i}`] = r(e);
+        } else {
+          const hierarchy = r.split('.');
+          if (hierarchy.length > 1) {
+            let aux = e;
+            hierarchy.forEach((h) => (aux = aux[h]));
+            newObj[r] = aux;
+          } else newObj[r] = e[r];
+        }
       });
       return newObj;
     })

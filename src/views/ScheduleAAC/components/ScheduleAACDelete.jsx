@@ -5,7 +5,7 @@ import { Modal } from 'components/Modal';
 import { FormButton } from 'components/FormButton';
 import PropTypes from 'prop-types';
 
-const ScheduleDelete = (props) => {
+const ScheduleAACDelete = (props) => {
   const { openForm, handleClose, selectedRow } = props;
   const { t } = useTranslation();
   const [isLoading, setisLoading] = useState(false);
@@ -22,9 +22,9 @@ const ScheduleDelete = (props) => {
     <Modal
       opened={openForm}
       onClose={handleClose}
-      title={t('schedule.delete.title')}
+      title={t('scheduleAAC.delete.title')}
     >
-      <Typography align="center">{t('schedule.delete.body')}</Typography>
+      <Typography align="center">{t('scheduleAAC.delete.body')}</Typography>
       <FormButton
         text={t('button.delete')}
         loadingText={t('button.isLoading')}
@@ -36,10 +36,10 @@ const ScheduleDelete = (props) => {
   );
 };
 
-ScheduleDelete.propTypes = {
+ScheduleAACDelete.propTypes = {
   openForm: PropTypes.bool, // OPEN FORM
   handleClose: PropTypes.func, // ONCLOSE FUNCTION
   selectedRow: PropTypes.object, //SELECTED ROW
 };
 
-export default ScheduleDelete;
+export default ScheduleAACDelete;

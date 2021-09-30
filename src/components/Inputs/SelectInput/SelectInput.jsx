@@ -22,12 +22,23 @@ const SelectInput = (props) => {
   const [field, meta] = useField(name);
   const classes = useStyles();
 
-  const allItems = () =>
-    data?.map((e) => (
-      <MenuItem key={fieldValue ? e[fieldValue] : e} value={e}>
-        {fieldValue ? e[fieldValue] : e}
-      </MenuItem>
-    ));
+  const allItems = () => {
+    if (typeof fieldValue === 'function') {
+      return data?.map((e, i) => (
+        <MenuItem key={`customSelectInput${i}`} value={e}>
+          <Typography variant="caption">{fieldValue(e)}</Typography>
+        </MenuItem>
+      ));
+    } else {
+      return data?.map((e) => (
+        <MenuItem key={fieldValue ? e[fieldValue] : e} value={e}>
+          <Typography variant="caption">
+            {fieldValue ? e[fieldValue] : e}
+          </Typography>
+        </MenuItem>
+      ));
+    }
+  };
 
   const groupList = () => {
     const newData = data.map((e, i) => {
@@ -37,7 +48,7 @@ const SelectInput = (props) => {
     return newData.map((e) =>
       e[fieldValue] ? (
         <MenuItem key={e[fieldValue]} value={e}>
-          {e[fieldValue]}
+          <Typography variant="caption">{e[fieldValue]}</Typography>
         </MenuItem>
       ) : (
         <ListSubheader className={classes.header} key={e?.section}>
@@ -47,6 +58,13 @@ const SelectInput = (props) => {
     );
   };
   const renderItems = () => (groupBy ? groupList() : allItems());
+  const renderValue = (val) => {
+    if (typeof fieldValue === 'function') {
+      return fieldValue(val);
+    } else {
+      return fieldValue ? val[fieldValue] : val;
+    }
+  };
 
   return (
     <Box marginBottom="1.5rem">
@@ -59,11 +77,7 @@ const SelectInput = (props) => {
         size="small"
         error={meta.touched && Boolean(meta.error)}
       >
-        <Select
-          {...field}
-          fullWidth
-          renderValue={(v) => (fieldValue ? v[fieldValue] : v)}
-        >
+        <Select {...field} fullWidth renderValue={renderValue}>
           {renderItems()}
         </Select>
         <FormHelperText>{meta.touched && meta.error}</FormHelperText>
@@ -76,7 +90,7 @@ SelectInput.propTypes = {
   name: PropTypes.string, // FIELD NAME
   title: PropTypes.string, // INPUT TITLE
   data: PropTypes.array, //DATA ARRAY
-  fieldValue: PropTypes.string, //SHOW FIELD ON SELECTED
+  fieldValue: PropTypes.oneOfType([PropTypes.string, PropTypes.func]), //SHOW FIELD ON SELECTED
   groupBy: PropTypes.string, //ITEMS GROUP
 };
 

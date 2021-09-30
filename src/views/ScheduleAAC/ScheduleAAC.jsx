@@ -1,16 +1,42 @@
 import { useState } from 'react';
-import { useLoadManageTool } from 'hooks/useLoadManageTool';
-import { CollapsibleTable } from 'components/CollapsibleTable';
+import { useLoadScheduleAAC } from 'hooks/useLoadScheduleAAC';
+import { Table } from 'components/Table';
 import { Toolbar } from 'components/Toolbar';
 import { Loader } from 'components/Loader';
-import ManageToolForm from './components/ManageToolForm';
-import ManageToolDelete from './components/ManageToolDelete';
-import PropTypes from 'prop-types';
+import ScheduleAACForm from './components/ScheduleAACForm';
+import ScheduleAACDelete from './components/ScheduleAACDelete';
 
-const columns = [{ title: 'manageTools.columns.aspect', field: 'nombre' }];
+const columns = [
+  {
+    title: 'scheduleAAC.columns.faculty',
+    field: 'planificacionGeneral.sedeFacultad.nombre',
+  },
+  {
+    title: 'scheduleAAC.columns.semester',
+    field: 'planificacionGeneral.semestre',
+  },
+  { title: 'scheduleAAC.columns.year', field: 'planificacionGeneral.anio' },
+  {
+    title: 'scheduleAAC.columns.professor',
+    field: (e) =>
+      `${e?.docenteCurso?.docente?.nombres} ${e?.docenteCurso?.docente?.apellidos}`,
+  },
+  {
+    title: 'scheduleAAC.columns.date',
+    field: 'fechaAplicacion',
+  },
+  {
+    title: 'scheduleAAC.columns.startTime',
+    field: 'horaInicio',
+  },
+  {
+    title: 'scheduleAAC.columns.endTime',
+    field: 'horaFin',
+  },
+];
 
-const ManageTools = () => {
-  const [data, loading, error] = useLoadManageTool();
+const ScheduleAAC = () => {
+  const [data, loading, error] = useLoadScheduleAAC();
   const [openForm, setopenForm] = useState(false);
   const [openDeleteForm, setopenDeleteForm] = useState(false);
   const [selectedRow, setselectedRow] = useState(null);
@@ -20,6 +46,7 @@ const ManageTools = () => {
   const handleCloseForm = () => setopenForm(false);
   const handleOpenDeleteForm = () => setopenDeleteForm(true);
   const handleCloseDeleteForm = () => setopenDeleteForm(false);
+
   const handleAddButton = () => {
     handleOpenForm();
     setisEditing(false);
@@ -28,9 +55,7 @@ const ManageTools = () => {
     handleOpenForm();
     setisEditing(true);
   };
-
   if (loading) return <Loader error={error} />;
-
   return (
     <>
       <Toolbar
@@ -39,22 +64,22 @@ const ManageTools = () => {
         onClickDelete={handleOpenDeleteForm}
         isSelected={!!selectedRow}
       />
-
-      <CollapsibleTable
-        data={data?.toolData}
-        fieldChild="criterios"
-        textChild="nombre"
+      <Table
+        data={data?.scheduleData}
         columns={columns}
+        count={0}
         setSelectedRow={setselectedRow}
       />
-      <ManageToolForm
+      <ScheduleAACForm
         openForm={openForm}
         handleClose={handleCloseForm}
         isEditing={isEditing}
         selectedRow={selectedRow}
-        aspectData={data?.aspectsData}
+        generalScheduleData={data?.generalScheduleData}
+        professorCourseData={data?.professorCourseData}
+        professorData={data?.professorData}
       />
-      <ManageToolDelete
+      <ScheduleAACDelete
         openForm={openDeleteForm}
         handleClose={handleCloseDeleteForm}
         selectedRow={selectedRow}
@@ -63,8 +88,4 @@ const ManageTools = () => {
   );
 };
 
-ManageTools.propTypes = {
-  type: PropTypes.string, // COULD BE AAC, AVD, VED
-};
-
-export default ManageTools;
+export default ScheduleAAC;

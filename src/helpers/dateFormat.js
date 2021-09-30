@@ -7,3 +7,21 @@ export const shortDate = (date) => {
   const yyyy = currentDate.getFullYear();
   return `${dd}/${mm}/${yyyy}`;
 };
+
+export const getDateByTime = (time) => {
+  const today = new Date();
+  const timeString = time.split(':');
+  const year = today.getFullYear();
+  const month = today.getMonth();
+  const day = today.getDay();
+  const hour = timeString[0];
+  const minute = timeString[1];
+
+  return new Date(year, month, day, hour, minute, 0);
+};
+
+export const getTimeByDate = (date) => {
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+  return `${hour}:${minute}`;
+};

@@ -23,6 +23,7 @@ const MultiSelectInput = (props) => {
   const { name, title, data = [], fieldValue } = props;
   const classes = useStyles();
   const [field, meta] = useField(name);
+
   return (
     <Box marginBottom="1.5rem">
       <Box marginBottom="0.5rem">
@@ -43,18 +44,31 @@ const MultiSelectInput = (props) => {
               {selected.map((value) => (
                 <Chip
                   key={value[fieldValue]}
-                  label={value[fieldValue]}
+                  label={
+                    typeof fieldValue === 'function'
+                      ? fieldValue(value)
+                      : value[fieldValue]
+                  }
                   className={classes.chip}
                 />
               ))}
             </>
           )}
         >
-          {data.map((e) => (
-            <MenuItem key={e[fieldValue]} value={e}>
-              {e[fieldValue]}
-            </MenuItem>
-          ))}
+          {data.map((e, i) => {
+            if (typeof fieldValue === 'function') {
+              return (
+                <MenuItem key={`customMultiSelect${i}`} value={e}>
+                  <Typography variant="caption">{fieldValue(e)}</Typography>
+                </MenuItem>
+              );
+            } else
+              return (
+                <MenuItem key={e[fieldValue]} value={e}>
+                  <Typography variant="caption">{e[fieldValue]}</Typography>
+                </MenuItem>
+              );
+          })}
         </Select>
         <FormHelperText>{meta.touched && meta.error}</FormHelperText>
       </FormControl>
@@ -66,7 +80,7 @@ MultiSelectInput.propTypes = {
   name: PropTypes.string, // FIELD NAME
   title: PropTypes.string, // INPUT TITLE
   data: PropTypes.array, //DATA ARRAY
-  fieldValue: PropTypes.string, //SHOW FIELD ON SELECTED
+  fieldValue: PropTypes.oneOfType([PropTypes.string, PropTypes.func]), //SHOW FIELD ON SELECTED
 };
 
 export default MultiSelectInput;

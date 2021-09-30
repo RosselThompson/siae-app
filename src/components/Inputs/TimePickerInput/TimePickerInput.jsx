@@ -1,16 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import 'date-fns';
 import {
-  KeyboardDatePicker,
+  KeyboardTimePicker,
   MuiPickersUtilsProvider,
 } from '@material-ui/pickers';
 import { Box, Typography } from '@material-ui/core';
 import DateFnsUtils from '@date-io/date-fns';
-import esLocale from 'date-fns/locale/es';
 import { useField } from 'formik';
 import PropTypes from 'prop-types';
 
-const DatePickerInput = (props) => {
+const TimePickerInput = (props) => {
   const { name, title } = props;
   const { t } = useTranslation();
   const [field, meta, helpers] = useField(name);
@@ -19,16 +18,15 @@ const DatePickerInput = (props) => {
       <Box marginBottom="0.5rem">
         <Typography variant="caption"> {title}</Typography>
       </Box>
-      <MuiPickersUtilsProvider utils={DateFnsUtils} locale={esLocale}>
-        <KeyboardDatePicker
-          disableToolbar
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <KeyboardTimePicker
+          ampm={false}
           size="small"
           inputVariant="outlined"
-          format="dd/MM/yyyy"
           margin="normal"
-          placeholder="DD/MM/YYYY"
-          cancelLabel={t('datePicker.cancel')}
-          okLabel={t('datePicker.ok')}
+          cancelLabel={t('timePicker.cancel')}
+          okLabel={t('timePicker.ok')}
+          placeholder="HH:mm"
           fullWidth
           onChange={(e) => helpers.setValue(e)}
           value={field.value}
@@ -40,9 +38,9 @@ const DatePickerInput = (props) => {
   );
 };
 
-DatePickerInput.propTypes = {
+TimePickerInput.propTypes = {
   name: PropTypes.string, // FIELD NAME
   title: PropTypes.string, // INPUT TITLE
 };
 
-export default DatePickerInput;
+export default TimePickerInput;

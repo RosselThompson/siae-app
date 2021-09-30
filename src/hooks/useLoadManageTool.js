@@ -16,7 +16,7 @@ export const useLoadManageTool = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setData({ toolData, aspects: Aspects });
+      setData({ toolData, aspectsData: Aspects });
       setLoading(false);
     }, 2000);
   }, []);
