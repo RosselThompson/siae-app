@@ -8,6 +8,7 @@ import {
   ManageTools,
   Schedule,
   ScheduleAAC,
+  ScheduleVED,
 } from 'views';
 
 const Router = () => (
@@ -23,6 +24,7 @@ const Router = () => (
         <Route exact path="/avd" component={ManageTools} />
         <Route exact path="/schedule" component={Schedule} />
         <Route exact path="/scheduleaac" component={ScheduleAAC} />
+        <Route exact path="/scheduleved" component={ScheduleVED} />
       </Layout>
     </Switch>
   </BrowserRouter>

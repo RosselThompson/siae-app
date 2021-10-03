@@ -5,3 +5,4 @@ export { default as Aspect } from './Aspect';
 export { default as ManageTools } from './ManageTools';
 export { default as Schedule } from './Schedule';
 export { default as ScheduleAAC } from './ScheduleAAC';
+export { default as ScheduleVED } from './ScheduleVED';

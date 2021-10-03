@@ -1,46 +1,46 @@
 import { useState } from 'react';
-import { useLoadScheduleAAC } from 'hooks/useLoadScheduleAAC';
+import { useLoadScheduleVED } from 'hooks/useLoadScheduleVED';
 import { Table } from 'components/Table';
 import { Toolbar } from 'components/Toolbar';
 import { Loader } from 'components/Loader';
-import ScheduleAACForm from './components/ScheduleAACForm';
-import ScheduleAACDelete from './components/ScheduleAACDelete';
+import ScheduleVEDForm from './components/ScheduleVEDForm';
+import ScheduleVEDDelete from './components/ScheduleVEDDelete';
 
 const columns = [
   {
-    title: 'scheduleAAC.columns.faculty',
+    title: 'scheduleVED.columns.faculty',
     field: 'planificacionGeneral.sedeFacultad.nombre',
   },
   {
-    title: 'scheduleAAC.columns.semester',
+    title: 'scheduleVED.columns.semester',
     field: 'planificacionGeneral.semestre',
   },
-  { title: 'scheduleAAC.columns.year', field: 'planificacionGeneral.anio' },
+  { title: 'scheduleVED.columns.year', field: 'planificacionGeneral.anio' },
   {
-    title: 'scheduleAAC.columns.professor',
+    title: 'scheduleVED.columns.professor',
     field: (e) =>
       `${e?.docenteCurso?.docente?.nombres} ${e?.docenteCurso?.docente?.apellidos}`,
   },
   {
-    title: 'scheduleAAC.columns.course',
+    title: 'scheduleVED.columns.course',
     field: 'docenteCurso.curso.codigoCurso',
   },
   {
-    title: 'scheduleAAC.columns.date',
+    title: 'scheduleVED.columns.date',
     field: 'fechaAplicacion',
   },
   {
-    title: 'scheduleAAC.columns.startTime',
+    title: 'scheduleVED.columns.startTime',
     field: 'horaInicio',
   },
   {
-    title: 'scheduleAAC.columns.endTime',
+    title: 'scheduleVED.columns.endTime',
     field: 'horaFin',
   },
 ];
 
-const ScheduleAAC = () => {
-  const [data, loading, error] = useLoadScheduleAAC();
+const ScheduleVED = () => {
+  const [data, loading, error] = useLoadScheduleVED();
   const [openForm, setopenForm] = useState(false);
   const [openDeleteForm, setopenDeleteForm] = useState(false);
   const [selectedRow, setselectedRow] = useState(null);
@@ -74,16 +74,15 @@ const ScheduleAAC = () => {
         count={0}
         setSelectedRow={setselectedRow}
       />
-      <ScheduleAACForm
+      <ScheduleVEDForm
         openForm={openForm}
         handleClose={handleCloseForm}
         isEditing={isEditing}
         selectedRow={selectedRow}
         generalScheduleData={data?.generalScheduleData}
         professorCourseData={data?.professorCourseData}
-        professorData={data?.professorData}
       />
-      <ScheduleAACDelete
+      <ScheduleVEDDelete
         openForm={openDeleteForm}
         handleClose={handleCloseDeleteForm}
         selectedRow={selectedRow}
@@ -92,4 +91,4 @@ const ScheduleAAC = () => {
   );
 };
 
-export default ScheduleAAC;
+export default ScheduleVED;
