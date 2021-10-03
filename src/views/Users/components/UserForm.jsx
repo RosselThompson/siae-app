@@ -5,13 +5,14 @@ import { Formik, Form } from 'formik';
 import { Modal } from 'components/Modal';
 import { FormButton } from 'components/FormButton';
 import { TextInput } from 'components/Inputs/TextInput';
+import { SelectInput } from 'components/Inputs/SelectInput';
 import { MultiSelectInput } from 'components/Inputs/MultiSelectInput';
 import { userSchema } from 'helpers/schemas';
+import { dashboardType } from 'constants/types';
 import PropTypes from 'prop-types';
-import { Roles as roleData } from 'mock/mockData';
 
 const UserForm = (props) => {
-  const { openForm, handleClose, isEditing, selectedRow } = props;
+  const { openForm, handleClose, isEditing, selectedRow, roleData } = props;
   const { t } = useTranslation();
   const [isLoading, setisLoading] = useState(false);
 
@@ -33,6 +34,7 @@ const UserForm = (props) => {
           password: isEditing ? selectedRow.password : '',
           confirmPassword: isEditing ? selectedRow.password : '',
           role: isEditing ? selectedRow.rol : [],
+          dashboard: isEditing ? selectedRow.dashboard : '',
         }}
         validateOnChange={false}
         validateOnBlur={false}
@@ -48,6 +50,12 @@ const UserForm = (props) => {
             title={t('user.form.input.role')}
             data={roleData}
             fieldValue="nombreRol"
+          />
+          <SelectInput
+            name="dashboard"
+            title={t('user.form.input.dashboard')}
+            data={dashboardType}
+            fieldValue="name"
           />
           <TextInput
             name="password"
@@ -81,6 +89,7 @@ UserForm.propTypes = {
   handleClose: PropTypes.func, // ONCLOSE FUNCTION
   isEditing: PropTypes.bool, //IS EDITING
   selectedRow: PropTypes.object, // SELECTED ROW
+  roleData: PropTypes.array, // ROLE DATA TO FILL SELECT INPUT
 };
 
 export default UserForm;

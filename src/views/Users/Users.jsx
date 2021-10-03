@@ -45,7 +45,7 @@ const Users = () => {
         isSelected={!!selectedRow}
       />
       <Table
-        data={getRoleByString(data.users, data.roles)}
+        data={getRoleByString(data?.users, data?.roles)}
         columns={columns}
         count={0}
         setSelectedRow={setselectedRow}
@@ -55,6 +55,7 @@ const Users = () => {
         handleClose={handleCloseForm}
         isEditing={isEditing}
         selectedRow={selectedRow}
+        roleData={data?.roles}
       />
       <UserDelete
         openForm={openDeleteForm}

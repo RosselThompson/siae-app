@@ -64,6 +64,7 @@
   "user.form.input.firstName": "Nombre",
   "user.form.input.lastName": "Apellido",
   "user.form.input.role": "Rol",
+  "user.form.input.dashboard": "Tipo de Dashboard",
   "user.form.input.password": "Contraseña",
   "user.form.input.confirmPassword": "Confirmar Contraseña",
   "user.form.infoMessage": "Se enviará un correo electrónico con sus credenciales para accesar a la plataforma",

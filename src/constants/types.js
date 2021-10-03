@@ -5,6 +5,12 @@ export const criteriaType = [
   { id: 3, name: 'Multiple' },
 ];
 
+export const dashboardType = [
+  { id: 0, name: 'Docente' },
+  { id: 1, name: 'Jefe de Departamento' },
+  { id: 2, name: 'Decano' },
+];
+
 const years = () => {
   const year = new Date().getFullYear();
   let arrayYear = [];
