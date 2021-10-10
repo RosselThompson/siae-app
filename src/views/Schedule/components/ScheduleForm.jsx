@@ -5,7 +5,7 @@ import { Modal } from 'components/Modal';
 import { FormButton } from 'components/FormButton';
 import { SelectInput } from 'components/Inputs/SelectInput';
 import { DatePickerInput } from 'components/Inputs/DatePickerInput';
-import { yearType, semesterType } from 'constants/types';
+import { YEAR_TYPE, SEMESTER_TYPE } from 'constants/types';
 import { scheduleSchema } from 'helpers/schemas';
 import PropTypes from 'prop-types';
 
@@ -49,12 +49,12 @@ const ScheduleForm = (props) => {
             title={t('schedule.form.input.faculty')}
           />
           <SelectInput
-            data={yearType}
+            data={YEAR_TYPE}
             name="year"
             title={t('schedule.form.input.year')}
           />
           <SelectInput
-            data={semesterType}
+            data={SEMESTER_TYPE}
             name="semester"
             title={t('schedule.form.input.semester')}
           />

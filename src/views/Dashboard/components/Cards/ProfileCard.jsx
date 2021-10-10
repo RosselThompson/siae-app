@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Typography, Box } from '@material-ui/core';
-import { Person, Mail, Category } from '@material-ui/icons';
+import { Person, Mail, Category, Dashboard } from '@material-ui/icons';
 import { Card } from 'components/Card';
 
 const ProfileCard = () => {
@@ -28,7 +28,15 @@ const ProfileCard = () => {
           <Category />
         </Box>
         <Typography variant="caption" color="textSecondary">
-          Jefe de Departamento
+          Invited
+        </Typography>
+      </Box>
+      <Box display="flex" alignItems="center" marginBottom="0.5rem">
+        <Box marginRight="0.5rem">
+          <Dashboard />
+        </Box>
+        <Typography variant="caption" color="textSecondary">
+          Docente
         </Typography>
       </Box>
     </Card>

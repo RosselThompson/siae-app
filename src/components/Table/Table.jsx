@@ -49,6 +49,7 @@ const Table = (props) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
+    noSsr: true,
   });
   const [selectedRowIndex, setselectedRowIndex] = useState(null);
   const allowedColumns = columns.map((e) => e.field);

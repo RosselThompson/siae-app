@@ -8,7 +8,7 @@ import { TextInput } from 'components/Inputs/TextInput';
 import { SelectInput } from 'components/Inputs/SelectInput';
 import { MultiSelectInput } from 'components/Inputs/MultiSelectInput';
 import { userSchema } from 'helpers/schemas';
-import { dashboardType } from 'constants/types';
+import { DASHBOARD_TYPE } from 'constants/types';
 import PropTypes from 'prop-types';
 
 const UserForm = (props) => {
@@ -54,7 +54,7 @@ const UserForm = (props) => {
           <SelectInput
             name="dashboard"
             title={t('user.form.input.dashboard')}
-            data={dashboardType}
+            data={DASHBOARD_TYPE}
             fieldValue="name"
           />
           <TextInput

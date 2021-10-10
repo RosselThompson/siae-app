@@ -15,6 +15,7 @@ const Logo = () => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
+    noSsr: true,
   });
 
   return (
