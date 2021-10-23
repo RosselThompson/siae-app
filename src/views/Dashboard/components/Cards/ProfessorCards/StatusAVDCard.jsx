@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import { Typography, Box, Chip, Grow } from '@material-ui/core';
 import { Assessment, CheckCircleOutline } from '@material-ui/icons';
 import { Card } from 'components/Card';
@@ -12,11 +13,14 @@ const useStyles = makeStyles((theme) => ({
     animation: '',
   },
   iconActive: {
-    color: theme.palette.primary.main,
+    color: theme.palette.common.white,
     fontSize: '4.5rem',
   },
   cardSubtitle: {
     fontSize: '10px',
+    lineHeight: '0.5',
+  },
+  cardSubtitleCompleted: {
     lineHeight: '0.5',
   },
   button: {
@@ -27,9 +31,13 @@ const useStyles = makeStyles((theme) => ({
 const StatusAVDCard = (props) => {
   const { isCompleted } = props;
   const { t } = useTranslation();
+  const history = useHistory();
   const classes = useStyles();
+
+  const onClickCTO = () => history.push('/applyavd');
+
   return (
-    <Card title={t('dashboard.statusAVD.card.title')}>
+    <Card title={t('dashboard.statusAVD.card.title')} filled={isCompleted}>
       <Box marginTop={isCompleted ? '2.5em' : '1.5em'}>
         <Box textAlign="center">
           <Grow in timeout={1000}>
@@ -41,9 +49,13 @@ const StatusAVDCard = (props) => {
           </Grow>
           <Box marginX="1rem" marginTop="0.3rem">
             <Typography
-              className={classes.cardSubtitle}
+              className={
+                isCompleted
+                  ? classes.cardSubtitleCompleted
+                  : classes.cardSubtitle
+              }
               variant="caption"
-              color="textSecondary"
+              color={isCompleted ? 'initial' : 'textSecondary'}
             >
               {isCompleted
                 ? t('dashboard.statusAVD.card.applied')
@@ -61,7 +73,7 @@ const StatusAVDCard = (props) => {
                 {t('dashboard.statusAVD.card.button')}
               </Typography>
             }
-            onClick={() => console.log('CTO')}
+            onClick={onClickCTO}
             color="primary"
             variant="outlined"
           />

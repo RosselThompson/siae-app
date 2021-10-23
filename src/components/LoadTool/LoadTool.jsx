@@ -15,6 +15,7 @@ import { YES_NO, SLIDER_MARKS } from 'constants/types';
 import { Form, Formik } from 'formik';
 import { getCheckOptions } from 'helpers/getCheckOptions';
 import PropTypes from 'prop-types';
+import HeaderTool from 'components/HeaderTool/HeaderTool';
 
 export const LoadTool = (props) => {
   const { onSubmit, toolData, isLoading } = props;
@@ -25,8 +26,11 @@ export const LoadTool = (props) => {
     noSsr: true,
   });
   return (
-    <Box marginBottom="4rem" marginTop="1rem" width="100%">
+    <Box marginBottom={isDesktop ? '0' : '4rem'} marginTop="1rem" width="100%">
       <Paper elevation={isDesktop && 2}>
+        <Box paddingTop="1rem">
+          <HeaderTool type="AVD" />
+        </Box>
         <Box paddingX={!isDesktop ? '0rem' : '2rem'} paddingY="0.5rem">
           <Formik initialValues={{}} onSubmit={onSubmit}>
             <Form>

@@ -20,7 +20,18 @@ const Dashboards = {
           <StatusAVDCard isCompleted />
         </Grid>
         <Grid item md={4} sm={12} xs={12}>
-          <ProgressCard />
+          <ProgressCard percent={50} />
+        </Grid>
+      </Grid>
+      <Grid container>
+        <Grid item md={4} sm={12} xs={12}>
+          <StatusAVDCard />
+        </Grid>
+        <Grid item md={4} sm={12} xs={12}>
+          <ProgressCard percent={30} />
+        </Grid>
+        <Grid item md={4} sm={12} xs={12}>
+          <ProgressCard percent={80} />
         </Grid>
       </Grid>
     </>

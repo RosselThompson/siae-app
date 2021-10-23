@@ -78,17 +78,10 @@ export const Menu = [
   },
   {
     idModulo: 13,
-    nombreModulo: 'menu.applyAVD',
-    to: '/applyavd',
-    icon: 'checklist',
-    orden: 12,
-  },
-  {
-    idModulo: 14,
     nombreModulo: 'Reportes',
     to: '/reports',
     icon: 'assessment',
-    orden: 13,
+    orden: 12,
   },
 ];
 
