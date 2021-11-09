@@ -97,3 +97,10 @@ export const scheduleAACSchema = () => {
       .required(t('field.isRequired')),
   });
 };
+
+export const verifyCodeVEDSchema = () => {
+  const { t } = useTranslation();
+  return Yup.object().shape({
+    code: Yup.string().required(t('field.isRequired')),
+  });
+};

@@ -28,16 +28,17 @@ const ApplyAVD = () => {
     );
 
   return (
-    <>
+    <Box margin="0.5rem">
       <BackIcon onClick={backFn} />
       <Box paddingX="2rem">
         <LoadTool
           toolData={data}
           onSubmit={submitForm}
           isLoading={loadingButton}
+          type="AVD"
         />
       </Box>
-    </>
+    </Box>
   );
 };
 

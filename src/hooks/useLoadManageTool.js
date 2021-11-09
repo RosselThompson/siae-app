@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { AAC, VED, AVD, Aspects } from 'mock/mockData';
 
 // USE SIAE PATH INSTEAD MOCK DATA
@@ -12,7 +13,8 @@ export const useLoadManageTool = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error] = useState(null);
-  const toolData = paths[window.location.pathname];
+  const { pathname } = useLocation();
+  const toolData = paths[pathname];
 
   useEffect(() => {
     setTimeout(() => {

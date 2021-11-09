@@ -1,6 +1,5 @@
 import Layout from 'layout/Layout';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
-import { ApplyAVD } from 'views';
 import {
   Dashboard,
   Roles,
@@ -10,6 +9,8 @@ import {
   Schedule,
   ScheduleAAC,
   ScheduleVED,
+  ApplyAVD,
+  ApplyVED,
   NotFound,
 } from 'views';
 
@@ -42,6 +43,7 @@ const Router = () => (
       <MyRoute l={Layout} exact path="/scheduleaac" component={ScheduleAAC} />
       <MyRoute l={Layout} exact path="/scheduleved" component={ScheduleVED} />
       <MyRoute exact path="/applyavd" component={ApplyAVD} />
+      <MyRoute exact path="/applyved" component={ApplyVED} />
       <Route component={NotFound} />
     </Switch>
   </BrowserRouter>

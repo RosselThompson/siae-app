@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import HeaderTool from 'components/HeaderTool/HeaderTool';
 
 export const LoadTool = (props) => {
-  const { onSubmit, toolData, isLoading } = props;
+  const { onSubmit, toolData, isLoading, type } = props;
   const { t } = useTranslation();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {
@@ -29,7 +29,7 @@ export const LoadTool = (props) => {
     <Box marginBottom={isDesktop ? '0' : '4rem'} marginTop="1rem" width="100%">
       <Paper elevation={isDesktop && 2}>
         <Box paddingTop="1rem">
-          <HeaderTool type="AVD" />
+          <HeaderTool type={type} />
         </Box>
         <Box paddingX={!isDesktop ? '0rem' : '2rem'} paddingY="0.5rem">
           <Formik initialValues={{}} onSubmit={onSubmit}>
@@ -106,6 +106,7 @@ LoadTool.propTypes = {
   toolData: PropTypes.array, //TOOL DATA WITH CRITERIAS
   onSubmit: PropTypes.func, //ON SUBMIT FUNCTION
   isLoading: PropTypes.bool, //BUTTON IS LOADING PROP
+  type: PropTypes.oneOf(['AVD', 'VED', 'AAC']), //TOOL TYPE
 };
 
 export default LoadTool;

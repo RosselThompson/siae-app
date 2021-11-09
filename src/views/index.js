@@ -7,4 +7,5 @@ export { default as Schedule } from './Schedule';
 export { default as ScheduleAAC } from './ScheduleAAC';
 export { default as ScheduleVED } from './ScheduleVED';
 export { default as ApplyAVD } from './ApplyAVD';
+export { default as ApplyVED } from './ApplyVED';
 export { default as NotFound } from './NotFound';

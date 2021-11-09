@@ -30,7 +30,7 @@ const Layout = (props) => {
   };
 
   return (
-    <>
+    <Box margin="0.5rem">
       <Navbar onClick={toogleMenu} />
       <Menu
         menuData={MenuData}
@@ -49,7 +49,7 @@ const Layout = (props) => {
       >
         {props.children}
       </Box>
-    </>
+    </Box>
   );
 };
 
