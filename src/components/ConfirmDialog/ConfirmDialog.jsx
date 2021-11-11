@@ -5,16 +5,16 @@ import { FormButton } from 'components/FormButton';
 import PropTypes from 'prop-types';
 
 const ConfirmDialog = (props) => {
-  const { onSubmit, handleClose, isLoading, isOpenDialog, type } = props;
+  const { onSubmit, handleClose, isLoading, isOpenDialog, type, tool } = props;
   const { t } = useTranslation();
   return (
     <Modal
       opened={isOpenDialog}
       onClose={handleClose}
-      title={t(`applyVED.confirmDialog.title.${type}`)}
+      title={t(`apply${tool}.confirmDialog.title.${type}`)}
     >
       <Typography align="center">
-        {t(`applyVED.confirmDialog.body.${type}`)}
+        {t(`apply${tool}.confirmDialog.body.${type}`)}
       </Typography>
       <FormButton
         text={t('button.confirm')}
@@ -33,6 +33,7 @@ ConfirmDialog.propTypes = {
   isLoading: PropTypes.bool, //SUBMIT BUTTON IS LOADING
   onSubmit: PropTypes.func, //SUBMIT FUNCTION
   type: PropTypes.oneOf('CANCEL, SAVE'), //MODAL TYPE
+  tool: PropTypes.oneOf('AAC, AVD', 'VED'), //TOOL TYPE
 };
 
 export default ConfirmDialog;

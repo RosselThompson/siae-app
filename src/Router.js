@@ -9,6 +9,8 @@ import {
   Schedule,
   ScheduleAAC,
   ScheduleVED,
+  ApplyAACTool,
+  ApplyAAC,
   ApplyAVD,
   ApplyVED,
   NotFound,
@@ -42,6 +44,8 @@ const Router = () => (
       <MyRoute l={Layout} exact path="/schedule" component={Schedule} />
       <MyRoute l={Layout} exact path="/scheduleaac" component={ScheduleAAC} />
       <MyRoute l={Layout} exact path="/scheduleved" component={ScheduleVED} />
+      <MyRoute l={Layout} exact path="/applyaac" component={ApplyAAC} />
+      <MyRoute path="/applyaac/:id" component={ApplyAACTool} />
       <MyRoute exact path="/applyavd" component={ApplyAVD} />
       <MyRoute exact path="/applyved" component={ApplyVED} />
       <Route component={NotFound} />

@@ -70,6 +70,21 @@ const HeaderTool = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
+              {type === 'AAC' ? (
+                <Grid item md={12} sm={12} xs={12}>
+                  <Grid container>
+                    <Grid item md={4} sm={4} xs={4}>
+                      <Typography>Docentes Invitados: </Typography>
+                    </Grid>
+                    <Grid item md={8} sm={8} xs={8}>
+                      <Typography>
+                        Danilo Humberto Noguera Rivera, Walger José Herrera
+                        Treminio
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              ) : null}
             </Grid>
           </Grid>
           <Grid item md={6} sm={12} xs={12}>

@@ -6,6 +6,8 @@ export { default as ManageTools } from './ManageTools';
 export { default as Schedule } from './Schedule';
 export { default as ScheduleAAC } from './ScheduleAAC';
 export { default as ScheduleVED } from './ScheduleVED';
+export { default as ApplyAAC } from './ApplyAAC';
+export { default as ApplyAACTool } from './ApplyAAC/components/Tool';
 export { default as ApplyAVD } from './ApplyAVD';
 export { default as ApplyVED } from './ApplyVED';
 export { default as NotFound } from './NotFound';

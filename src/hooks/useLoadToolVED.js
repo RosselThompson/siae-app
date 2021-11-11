@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import { ScheduleAAC } from 'mock/mockData';
+import { VED } from 'mock/mockData';
 
-export const useLoadApplyAAC = () => {
+export const useLoadToolVED = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error] = useState(null);
 
   useEffect(() => {
     setTimeout(() => {
-      setData(ScheduleAAC);
+      setData(VED);
       setLoading(false);
     }, 2000);
   }, []);
@@ -16,4 +16,4 @@ export const useLoadApplyAAC = () => {
   return [data, loading, error];
 };
 
-export default useLoadApplyAAC;
+export default useLoadToolVED;

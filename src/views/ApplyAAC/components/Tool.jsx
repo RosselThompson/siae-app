@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useLoadToolAVD } from 'hooks/useLoadToolAVD';
+import { useHistory } from 'react-router';
+import { useLoadToolAAC } from 'hooks/useLoadToolAAC';
+import { Box } from '@material-ui/core';
 import { LoadTool } from 'components/LoadTool';
 import { Loader } from 'components/Loader';
+import { BackIcon } from 'components/BackIcon';
 import { ConfirmDialog } from 'components/ConfirmDialog';
-import { Box } from '@material-ui/core';
-import BackIcon from 'components/BackIcon/BackIcon';
 
-const ApplyAVD = () => {
-  const [data, loading, error] = useLoadToolAVD();
+const Tool = () => {
+  const [data, loading, error] = useLoadToolAAC();
   const history = useHistory();
   const [isOpenSaveDialog, setisOpenSaveDialog] = useState(false);
   const [isOpenCancelDialog, setisOpenCancelDialog] = useState(false);
@@ -20,18 +20,19 @@ const ApplyAVD = () => {
   const openCancelDialog = () => setisOpenCancelDialog(true);
   const closeCancelDialog = () => setisOpenCancelDialog(false);
 
+  const redirect = () =>
+    setTimeout(() => {
+      history.push('/applyAAC');
+    }, 2000);
+
   const submitForm = () => {
     setisLoadingSave(true);
-    setTimeout(() => {
-      history.push('/');
-    }, 2000);
+    redirect();
   };
 
   const cancelForm = () => {
     setisLoadingCancel(true);
-    setTimeout(() => {
-      history.push('/');
-    }, 2000);
+    redirect();
   };
 
   if (loading)
@@ -49,7 +50,7 @@ const ApplyAVD = () => {
         isLoading={isLoadingSave}
         onSubmit={submitForm}
         type="SAVE"
-        tool="AVD"
+        tool="AAC"
       />
       <ConfirmDialog
         isOpenDialog={isOpenCancelDialog}
@@ -57,16 +58,16 @@ const ApplyAVD = () => {
         isLoading={isLoadingCancel}
         onSubmit={cancelForm}
         type="CANCEL"
-        tool="AVD"
+        tool="AAC"
       />
       <Box margin="0.5rem">
         <BackIcon onClick={openCancelDialog} />
         <Box paddingX="2rem">
-          <LoadTool toolData={data} onSubmit={openSaveDialog} type="AVD" />
+          <LoadTool toolData={data} onSubmit={openSaveDialog} type="AAC" />
         </Box>
       </Box>
     </>
   );
 };
 
-export default ApplyAVD;
+export default Tool;

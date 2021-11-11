@@ -1,14 +1,19 @@
 import { useEffect, useState } from 'react';
-import { AVD } from 'mock/mockData';
+import { useParams } from 'react-router';
+import { AAC } from 'mock/mockData';
 
-export const useLoadApplyAVD = () => {
+export const useLoadToolAAC = () => {
   const [data, setData] = useState([]);
+  const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [error] = useState(null);
 
+  // SEND ID TO API REQUEST
+  console.log(id);
+
   useEffect(() => {
     setTimeout(() => {
-      setData(AVD);
+      setData(AAC);
       setLoading(false);
     }, 2000);
   }, []);
@@ -16,4 +21,4 @@ export const useLoadApplyAVD = () => {
   return [data, loading, error];
 };
 
-export default useLoadApplyAVD;
+export default useLoadToolAAC;

@@ -1359,6 +1359,7 @@ export const ScheduleAAC = [
     fechaAplicacion: '2021-02-10T00:00:00',
     horaInicio: '8:00',
     horaFin: '17:00',
+    aplicado: false,
     planificacionGeneral: {
       idPlanificacionGeneral: 1,
       idSedeFacultad: 1,
@@ -1410,6 +1411,7 @@ export const ScheduleAAC = [
     fechaAplicacion: '2021-02-10T00:00:00',
     horaInicio: '8:00',
     horaFin: '17:00',
+    aplicado: false,
     planificacionGeneral: {
       idPlanificacionGeneral: 1,
       idSedeFacultad: 1,
@@ -1461,6 +1463,7 @@ export const ScheduleAAC = [
     fechaAplicacion: '2021-02-10T00:00:00',
     horaInicio: '8:00',
     horaFin: '17:00',
+    aplicado: true,
     planificacionGeneral: {
       idPlanificacionGeneral: 1,
       idSedeFacultad: 1,

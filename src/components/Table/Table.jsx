@@ -43,7 +43,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Table = (props) => {
-  const { data = [], columns = [], count = 0, setSelectedRow } = props;
+  const {
+    data = [],
+    columns = [],
+    count = 0,
+    setSelectedRow,
+    isSelectAllowed = true,
+  } = props;
   const classes = useStyles();
   const { t } = useTranslation();
   const theme = useTheme();
@@ -96,8 +102,10 @@ const Table = (props) => {
                       : classes.rowBody
                   }
                   onClick={() => {
-                    setselectedRowIndex(index);
-                    setSelectedRow(data[index]);
+                    if (isSelectAllowed) {
+                      setselectedRowIndex(index);
+                      setSelectedRow(data[index]);
+                    }
                   }}
                 >
                   {Object.keys(row).map((e) => (
@@ -160,6 +168,7 @@ Table.propTypes = {
   columns: PropTypes.array, // COLUMNS TO SHOW IN THE GRID
   count: PropTypes.number, // TOTAL OF REGISTER
   setSelectedRow: PropTypes.func, // FUNCTION TO SET SELECTED ROW
+  isSelectAllowed: PropTypes.bool, // IS TABLE ABLE TO SELECT A ROW
 };
 
 export default Table;

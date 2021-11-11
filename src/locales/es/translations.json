@@ -155,5 +155,18 @@
   "applyVED.confirmDialog.title.CANCEL": "Cancelar Aplicación VED",
   "applyVED.confirmDialog.body.CANCEL": "Si sale del formulario se perderá el progreso, ¿Desea salir?",
   "applyVED.completed.title": "¡Ha completado el instrumento exitosamente!",
-  "applyVED.completed.body": "Gracias por completar el instrumento Valoración Estudiante Docente, sus resultados serán tomado en cuenta para la evaluación del docente"
+  "applyVED.completed.body": "Gracias por completar el instrumento Valoración Estudiante Docente, sus resultados serán tomado en cuenta para la evaluación del docente",
+  "applyAAC.columns.professor": "Docente",
+  "applyAAC.columns.course": "Curso",
+  "applyAAC.columns.date": "Fecha de Aplicación",
+  "applyAAC.columns.startTime": "Hora de Inicio",
+  "applyAAC.columns.endTime": "Hora de Fin",
+  "applyAAC.columns.state": "Estado",
+  "applyAAC.columns.state.applied": "Aplicado",
+  "applyAAC.columns.state.pending": "Pendiente",
+  "applyAAC.columns.action": "Acción",
+  "applyAAC.confirmDialog.title.SAVE": "Guardar Aplicación AAC",
+  "applyAAC.confirmDialog.body.SAVE": "¿Desea guardar las respuestas de su formulario?",
+  "applyAAC.confirmDialog.title.CANCEL": "Cancelar Aplicación AAC",
+  "applyAAC.confirmDialog.body.CANCEL": "Si sale del formulario se perderá el progreso, ¿Desea salir?"
 }

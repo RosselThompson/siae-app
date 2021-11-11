@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { useLoadApplyAVD } from 'hooks/useLoadApplyAVD';
+import { useLoadToolVED } from 'hooks/useLoadToolVED';
 import { Box } from '@material-ui/core';
 import { LoadTool } from 'components/LoadTool';
 import { Loader } from 'components/Loader';
 import { BackIcon } from 'components/BackIcon';
-import ConfirmDialog from './ConfirmDialog';
+import { ConfirmDialog } from 'components/ConfirmDialog';
 import PropTypes from 'prop-types';
 
 const Tool = (props) => {
   const { saveFn, cancelFn } = props;
-  const [data, loading, error] = useLoadApplyAVD();
+  const [data, loading, error] = useLoadToolVED();
   const [isOpenSaveDialog, setisOpenSaveDialog] = useState(false);
   const [isOpenCancelDialog, setisOpenCancelDialog] = useState(false);
   const [isLoadingSave, setisLoadingSave] = useState(false);
@@ -45,6 +45,7 @@ const Tool = (props) => {
         isLoading={isLoadingSave}
         onSubmit={submitForm}
         type="SAVE"
+        tool="VED"
       />
       <ConfirmDialog
         isOpenDialog={isOpenCancelDialog}
@@ -52,6 +53,7 @@ const Tool = (props) => {
         isLoading={isLoadingCancel}
         onSubmit={cancelForm}
         type="CANCEL"
+        tool="VED"
       />
       <Box margin="0.5rem">
         <BackIcon onClick={openCancelDialog} />
