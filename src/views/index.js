@@ -10,4 +10,5 @@ export { default as ApplyAAC } from './ApplyAAC';
 export { default as ApplyAACTool } from './ApplyAAC/components/Tool';
 export { default as ApplyAVD } from './ApplyAVD';
 export { default as ApplyVED } from './ApplyVED';
+export { default as Reports } from './Reports';
 export { default as NotFound } from './NotFound';

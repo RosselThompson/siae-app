@@ -1292,6 +1292,69 @@ export const Faculties = [
   },
 ];
 
+export const Departments = [
+  {
+    idDepartamentoCoordinacion: 1,
+    idSedeFacultad: 1,
+    nombre: 'FCYS - Administración',
+  },
+  {
+    idDepartamentoCoordinacion: 2,
+    idSedeFacultad: 1,
+    nombre: 'FCYS - Informática',
+  },
+  {
+    idDepartamentoCoordinacion: 3,
+    idSedeFacultad: 1,
+    nombre: 'FCYS - Sociales',
+  },
+  {
+    idDepartamentoCoordinacion: 4,
+    idSedeFacultad: 2,
+    nombre: 'FTI - Administración',
+  },
+  {
+    idDepartamentoCoordinacion: 5,
+    idSedeFacultad: 2,
+    nombre: 'FTI - Informática',
+  },
+  {
+    idDepartamentoCoordinacion: 6,
+    idSedeFacultad: 2,
+    nombre: 'FTI - Sociales',
+  },
+  {
+    idDepartamentoCoordinacion: 7,
+    idSedeFacultad: 3,
+    nombre: 'FTC - Administración',
+  },
+  {
+    idDepartamentoCoordinacion: 8,
+    idSedeFacultad: 3,
+    nombre: 'FTC - Informática',
+  },
+  {
+    idDepartamentoCoordinacion: 9,
+    idSedeFacultad: 3,
+    nombre: 'FTC - Sociales',
+  },
+  {
+    idDepartamentoCoordinacion: 10,
+    idSedeFacultad: 4,
+    nombre: 'FEC - Administración',
+  },
+  {
+    idDepartamentoCoordinacion: 11,
+    idSedeFacultad: 4,
+    nombre: 'FEC - Informática',
+  },
+  {
+    idDepartamentoCoordinacion: 12,
+    idSedeFacultad: 4,
+    nombre: 'FEC - Sociales',
+  },
+];
+
 export const Precincts = [
   {
     idRecinto: 1,

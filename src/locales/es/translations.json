@@ -168,5 +168,16 @@
   "applyAAC.confirmDialog.title.SAVE": "Guardar Aplicación AAC",
   "applyAAC.confirmDialog.body.SAVE": "¿Desea guardar las respuestas de su formulario?",
   "applyAAC.confirmDialog.title.CANCEL": "Cancelar Aplicación AAC",
-  "applyAAC.confirmDialog.body.CANCEL": "Si sale del formulario se perderá el progreso, ¿Desea salir?"
+  "applyAAC.confirmDialog.body.CANCEL": "Si sale del formulario se perderá el progreso, ¿Desea salir?",
+  "reportCard.button.text": "Descargar",
+  "reports.dep.title": "Reporte por Departamento",
+  "reports.dep.body": "Muestra los resultados de la aplicación de los instrumentos AAC, AVD y VED de los docente del departamento seleccionado",
+  "reports.faculty.title": "Reporte por Facultad",
+  "reports.faculty.body": "Muestra los resultados de la aplicación de los instrumentos AAC, AVD y VED de los departamentos de la facultad seleccionada",
+  "reports.schedule.title": "Programación Actual",
+  "reports.schedule.body": "Calendario de programaciones de los instrumentos AAC, AVD y VED de los docente del departamento seleccionado",
+  "reports.searchFaculty.title": "Seleccionar Facultad",
+  "reports.searchFaculty.input.faculty": "Facultad",
+  "reports.searchDep.title": "Seleccionar Departamento",
+  "reports.searchDep.input.department": "Departamento"
 }

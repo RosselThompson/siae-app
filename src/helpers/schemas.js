@@ -104,3 +104,17 @@ export const verifyCodeVEDSchema = () => {
     code: Yup.string().required(t('field.isRequired')),
   });
 };
+
+export const searchFacultySchema = () => {
+  const { t } = useTranslation();
+  return Yup.object().shape({
+    faculty: Yup.object().required(t('field.isRequired')),
+  });
+};
+
+export const searchDepSchema = () => {
+  const { t } = useTranslation();
+  return Yup.object().shape({
+    department: Yup.object().required(t('field.isRequired')),
+  });
+};
