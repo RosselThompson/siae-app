@@ -179,5 +179,9 @@
   "reports.searchFaculty.title": "Seleccionar Facultad",
   "reports.searchFaculty.input.faculty": "Facultad",
   "reports.searchDep.title": "Seleccionar Departamento",
-  "reports.searchDep.input.department": "Departamento"
+  "reports.searchDep.input.department": "Departamento",
+  "scheduleSummary.columns.professor": "Docente",
+  "scheduleSummary.columns.stateVED": "Estado VED",
+  "scheduleSummary.columns.stateAAC": "Estado AAC",
+  "scheduleSummary.columns.stateAVD": "Estado AVD"
 }

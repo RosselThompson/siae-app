@@ -2368,3 +2368,54 @@ export const ScheduleVED = [
     },
   },
 ];
+
+export const ScheduleSummary = [
+  {
+    id: 0,
+    docente: {
+      idDocente: 20868,
+      codigoDocente: '20868',
+      idPersona: 20868,
+      nombres: 'Danilo Humberto',
+      apellidos: 'Noguera Rivera',
+      sexo: 'M',
+      tipoContratacion: '',
+      categoria: '',
+    },
+    aplicacionAVD: false,
+    aplicacionVED: true,
+    aplicacionAAC: true,
+  },
+  {
+    id: 1,
+    docente: {
+      idDocente: 6091,
+      codigoDocente: '6091',
+      idPersona: 6091,
+      nombres: 'Walger José',
+      apellidos: 'Herrera Treminio',
+      sexo: 'M',
+      tipoContratacion: '',
+      categoria: '',
+    },
+    aplicacionAVD: false,
+    aplicacionVED: false,
+    aplicacionAAC: false,
+  },
+  {
+    id: 1,
+    docente: {
+      idDocente: 2,
+      codigoDocente: '2',
+      idPersona: 2,
+      nombres: 'Evelyn del Carmen',
+      apellidos: 'Espinoza Aragón',
+      sexo: 'F',
+      tipoContratacion: '',
+      categoria: '',
+    },
+    aplicacionAVD: false,
+    aplicacionVED: true,
+    aplicacionAAC: false,
+  },
+];

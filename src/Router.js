@@ -7,6 +7,7 @@ import {
   Aspect,
   ManageTools,
   Schedule,
+  ScheduleSummary as ScheduleS,
   ScheduleAAC,
   ScheduleVED,
   ApplyAACTool,
@@ -43,6 +44,7 @@ const Router = () => (
       <MyRoute l={Layout} exact path="/ved" component={ManageTools} />
       <MyRoute l={Layout} exact path="/avd" component={ManageTools} />
       <MyRoute l={Layout} exact path="/schedule" component={Schedule} />
+      <MyRoute l={Layout} exact path="/schedulesummary" component={ScheduleS} />
       <MyRoute l={Layout} exact path="/scheduleaac" component={ScheduleAAC} />
       <MyRoute l={Layout} exact path="/scheduleved" component={ScheduleVED} />
       <MyRoute l={Layout} exact path="/reports" component={Reports} />

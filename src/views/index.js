@@ -4,6 +4,7 @@ export { default as Users } from './Users';
 export { default as Aspect } from './Aspect';
 export { default as ManageTools } from './ManageTools';
 export { default as Schedule } from './Schedule';
+export { default as ScheduleSummary } from './ScheduleSummary';
 export { default as ScheduleAAC } from './ScheduleAAC';
 export { default as ScheduleVED } from './ScheduleVED';
 export { default as ApplyAAC } from './ApplyAAC';
