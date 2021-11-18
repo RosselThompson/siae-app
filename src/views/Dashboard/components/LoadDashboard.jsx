@@ -1,6 +1,11 @@
 import { Grid } from '@material-ui/core';
 import { InfoCard, ProfileCard, ProgressCard } from './Cards';
-import { StatusAVDCard } from './Cards/ProfessorCards';
+import {
+  StatusAVDCard,
+  StatusAACCard,
+  StatusVEDCard,
+  ShowResultsCard,
+} from './Cards/ProfessorCards';
 import { DASHBOARD_TYPE } from 'constants/types';
 import PropTypes from 'prop-types';
 
@@ -17,21 +22,21 @@ const Dashboards = {
           <ProfileCard />
         </Grid>
         <Grid item md={4} sm={12} xs={12}>
-          <StatusAVDCard isCompleted />
+          <ProgressCard percent={50} />
         </Grid>
         <Grid item md={4} sm={12} xs={12}>
-          <ProgressCard percent={50} />
+          <ShowResultsCard isAvailable />
         </Grid>
       </Grid>
       <Grid container>
         <Grid item md={4} sm={12} xs={12}>
+          <StatusAACCard isCompleted />
+        </Grid>
+        <Grid item md={4} sm={12} xs={12}>
           <StatusAVDCard />
         </Grid>
         <Grid item md={4} sm={12} xs={12}>
-          <ProgressCard percent={30} />
-        </Grid>
-        <Grid item md={4} sm={12} xs={12}>
-          <ProgressCard percent={80} />
+          <StatusVEDCard />
         </Grid>
       </Grid>
     </>

@@ -71,17 +71,24 @@ export const Menu = [
   },
   {
     idModulo: 12,
-    nombreModulo: 'menu.applyAAC',
-    to: '/applyaac',
-    icon: 'checklist',
+    nombreModulo: 'menu.scheduleSummary',
+    to: '/schedulesummary',
+    icon: 'event_available',
     orden: 11,
   },
   {
     idModulo: 13,
+    nombreModulo: 'menu.applyAAC',
+    to: '/applyaac',
+    icon: 'checklist',
+    orden: 12,
+  },
+  {
+    idModulo: 14,
     nombreModulo: 'Reportes',
     to: '/reports',
     icon: 'assessment',
-    orden: 12,
+    orden: 13,
   },
 ];
 
