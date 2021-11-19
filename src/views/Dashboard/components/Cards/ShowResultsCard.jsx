@@ -28,14 +28,14 @@ const ShowResultsCard = (props) => {
 
   return (
     <Card title={t('dashboard.showResults.card.title')} filled={isAvailable}>
-      <Box marginTop={isAvailable ? '2.5em' : '1.5em'}>
+      <Box marginTop="2.5rem">
         <Box textAlign="center">
           <Grow in timeout={1000}>
             <ShowChart
               className={isAvailable ? classes.iconActive : classes.icon}
             />
           </Grow>
-          <Box marginX="1rem" marginTop="0.5rem">
+          <Box marginX="1rem" marginTop={isAvailable ? '0.5rem' : '2rem'}>
             <Typography
               variant="caption"
               color={isAvailable ? 'initial' : 'textSecondary'}

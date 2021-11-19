@@ -33,7 +33,7 @@ const StatusVEDCard = (props) => {
   const classes = useStyles();
 
   return (
-    <Card title={t('dashboard.statusVED.card.title')} filled={isCompleted}>
+    <Card title={t('dashboard.prof.statusVED.card.title')} filled={isCompleted}>
       <Box marginTop={isCompleted ? '2.5em' : '1.5em'}>
         <Box textAlign="center">
           <Grow in timeout={1000}>
@@ -54,8 +54,8 @@ const StatusVEDCard = (props) => {
               color={isCompleted ? 'initial' : 'textSecondary'}
             >
               {isCompleted
-                ? t('dashboard.statusVED.card.applied')
-                : t('dashboard.statusVED.card.notApplied')}
+                ? t('dashboard.prof.statusVED.card.applied')
+                : t('dashboard.prof.statusVED.card.notApplied')}
             </Typography>
           </Box>
         </Box>

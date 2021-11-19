@@ -37,7 +37,7 @@ const StatusAVDCard = (props) => {
   const onClickCTO = () => history.push('/applyavd');
 
   return (
-    <Card title={t('dashboard.statusAVD.card.title')} filled={isCompleted}>
+    <Card title={t('dashboard.prof.statusAVD.card.title')} filled={isCompleted}>
       <Box marginTop={isCompleted ? '2.5em' : '1.5em'}>
         <Box textAlign="center">
           <Grow in timeout={1000}>
@@ -58,8 +58,8 @@ const StatusAVDCard = (props) => {
               color={isCompleted ? 'initial' : 'textSecondary'}
             >
               {isCompleted
-                ? t('dashboard.statusAVD.card.applied')
-                : t('dashboard.statusAVD.card.notApplied')}
+                ? t('dashboard.prof.statusAVD.card.applied')
+                : t('dashboard.prof.statusAVD.card.notApplied')}
             </Typography>
           </Box>
         </Box>
@@ -70,7 +70,7 @@ const StatusAVDCard = (props) => {
             className={classes.button}
             label={
               <Typography variant="caption">
-                {t('dashboard.statusAVD.card.button')}
+                {t('dashboard.prof.statusAVD.card.button')}
               </Typography>
             }
             onClick={onClickCTO}

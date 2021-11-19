@@ -33,7 +33,7 @@ const StatusAACCard = (props) => {
   const classes = useStyles();
 
   return (
-    <Card title={t('dashboard.statusAAC.card.title')} filled={isCompleted}>
+    <Card title={t('dashboard.prof.statusAAC.card.title')} filled={isCompleted}>
       <Box marginTop={isCompleted ? '2.5em' : '1.5em'}>
         <Box textAlign="center">
           <Grow in timeout={1000}>
@@ -54,8 +54,8 @@ const StatusAACCard = (props) => {
               color={isCompleted ? 'initial' : 'textSecondary'}
             >
               {isCompleted
-                ? t('dashboard.statusAAC.card.applied')
-                : t('dashboard.statusAAC.card.notApplied')}
+                ? t('dashboard.prof.statusAAC.card.applied')
+                : t('dashboard.prof.statusAAC.card.notApplied')}
             </Typography>
           </Box>
         </Box>
