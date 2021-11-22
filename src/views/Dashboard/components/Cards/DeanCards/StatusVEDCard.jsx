@@ -1,5 +1,5 @@
 import { Typography, Box, Grow, Grid } from '@material-ui/core';
-import { Assessment } from '@material-ui/icons';
+import { Class } from '@material-ui/icons';
 import { Card } from 'components/Card';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
@@ -30,16 +30,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StatusAVDCard = () => {
+const StatusVEDCard = () => {
   const { t } = useTranslation();
   const classes = useStyles();
 
   return (
-    <Card title={t('dashboard.dep.statusAVD.card.title')}>
+    <Card title={t('dashboard.dean.statusAAC.card.title')}>
       <Box marginTop="1.5em">
         <Box textAlign="center">
           <Grow in timeout={1000}>
-            <Assessment className={classes.icon} />
+            <Class className={classes.icon} />
           </Grow>
           <Box marginX="1rem">
             <Typography
@@ -47,7 +47,7 @@ const StatusAVDCard = () => {
               variant="caption"
               color="textSecondary"
             >
-              {t('dashboard.dep.statusAVD.card.body')}
+              {t('dashboard.dean.statusAAC.card.body')}
             </Typography>
           </Box>
           <Box marginX="1rem" marginTop="2rem">
@@ -62,17 +62,17 @@ const StatusAVDCard = () => {
                   flexDirection="column"
                   alignItems="flex-end"
                 >
-                  <Typography variant="caption">25</Typography>
-                  <Typography variant="caption">11</Typography>
+                  <Typography variant="caption">9</Typography>
+                  <Typography variant="caption">10</Typography>
                 </Box>
               </Grid>
               <Grid item xs={6} sm={6} md={6}>
                 <Box display="flex" flexDirection="column">
                   <Typography variant="caption">
-                    {t('dashboard.dep.applied')}
+                    {t('dashboard.dean.applied')}
                   </Typography>
                   <Typography variant="caption">
-                    {t('dashboard.dep.pending')}
+                    {t('dashboard.dean.pending')}
                   </Typography>
                 </Box>
               </Grid>
@@ -84,4 +84,4 @@ const StatusAVDCard = () => {
   );
 };
 
-export default StatusAVDCard;
+export default StatusVEDCard;

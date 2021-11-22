@@ -1,5 +1,5 @@
 import { LoadDashboard } from './components';
 
-const Dashboard = () => <LoadDashboard userDashboard="Jefe de Departamento" />;
+const Dashboard = () => <LoadDashboard userDashboard="Decano" />;
 
 export default Dashboard;

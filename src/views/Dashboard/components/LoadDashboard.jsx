@@ -10,6 +10,11 @@ import {
   StatusAVDCard as DepStatusAVDCard,
   StatusVEDCard as DepStatusVEDCard,
 } from './Cards/DepartmentChiefCards';
+import {
+  StatusAACCard as DeanStatusAACCard,
+  StatusAVDCard as DeanStatusAVDCard,
+  StatusVEDCard as DeanStatusVEDCard,
+} from './Cards/DeanCards';
 import { DASHBOARD_TYPE } from 'constants/types';
 import PropTypes from 'prop-types';
 
@@ -95,6 +100,17 @@ const Dashboards = {
         </Grid>
         <Grid item md={4} sm={12} xs={12}>
           <ShowResultsCard isAvailable />
+        </Grid>
+      </Grid>
+      <Grid container>
+        <Grid item md={4} sm={12} xs={12}>
+          <DeanStatusAACCard />
+        </Grid>
+        <Grid item md={4} sm={12} xs={12}>
+          <DeanStatusAVDCard />
+        </Grid>
+        <Grid item md={4} sm={12} xs={12}>
+          <DeanStatusVEDCard />
         </Grid>
       </Grid>
     </>

@@ -35,7 +35,7 @@ const StatusAVDCard = () => {
   const classes = useStyles();
 
   return (
-    <Card title={t('dashboard.dep.statusAVD.card.title')}>
+    <Card title={t('dashboard.dean.statusAVD.card.title')}>
       <Box marginTop="1.5em">
         <Box textAlign="center">
           <Grow in timeout={1000}>
@@ -47,7 +47,7 @@ const StatusAVDCard = () => {
               variant="caption"
               color="textSecondary"
             >
-              {t('dashboard.dep.statusAVD.card.body')}
+              {t('dashboard.dean.statusAVD.card.body')}
             </Typography>
           </Box>
           <Box marginX="1rem" marginTop="2rem">
@@ -69,10 +69,10 @@ const StatusAVDCard = () => {
               <Grid item xs={6} sm={6} md={6}>
                 <Box display="flex" flexDirection="column">
                   <Typography variant="caption">
-                    {t('dashboard.dep.applied')}
+                    {t('dashboard.dean.applied')}
                   </Typography>
                   <Typography variant="caption">
-                    {t('dashboard.dep.pending')}
+                    {t('dashboard.dean.pending')}
                   </Typography>
                 </Box>
               </Grid>

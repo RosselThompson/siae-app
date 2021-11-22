@@ -53,8 +53,8 @@ const StatusAACCard = () => {
           <Box marginX="1rem" marginTop="2rem">
             <Grid container>
               <Grid item xs={3} sm={3} md={3}>
-                <div className={classes.redDot} />
                 <div className={classes.blueDot} />
+                <div className={classes.redDot} />
               </Grid>
               <Grid item xs={3} sm={3} md={3}>
                 <Box
@@ -69,10 +69,10 @@ const StatusAACCard = () => {
               <Grid item xs={6} sm={6} md={6}>
                 <Box display="flex" flexDirection="column">
                   <Typography variant="caption">
-                    {t('dashboard.dep.pending')}
+                    {t('dashboard.dep.applied')}
                   </Typography>
                   <Typography variant="caption">
-                    {t('dashboard.dep.applied')}
+                    {t('dashboard.dep.pending')}
                   </Typography>
                 </Box>
               </Grid>
