@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with SIAE App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a SPA created for evaluating the education process in a university. It allows to create and schedule different tools in order to evaluate the teaching process of each professor belonging to a university.
 
 ## Libraries
 
