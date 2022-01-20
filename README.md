@@ -2,9 +2,45 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Libraries
+
+  ### Component library
+  - Material UI. v4: https://v4.mui.com/
+
+  ### Http requests
+  - Axios: https://www.npmjs.com/package/axios
+
+  ### Forms management
+  - Formik: https://formik.org/ 
+
+  ### Locales
+  - i18next: https://react.i18next.com/
+
+  ### Internal routes
+  - React Router: https://v5.reactrouter.com/
+
+  ### Charts
+  - Victory: https://formidable.com/open-source/victory/
+
+  ### Code Formatter
+  - Eslint: https://eslint.org/
+  - Prettier: https://prettier.io/
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn dev`
+
+Runs the app in the development mode in port 8000.\
+Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+### `yarn lint`
+
+Launches the code formatter runner over all .js and .jsx files.
 
 ### `yarn start`
 
